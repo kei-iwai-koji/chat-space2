@@ -1,0 +1,36 @@
+.notification
+
+.navbar
+  .users-area
+    .user
+      .user-name ユーザーネーム
+      = link_to "/messages", class: "group-new" do
+        %i.fas.fa-edit
+      = link_to "アイコン", "/messages", class: "group-new"
+      = link_to "アイコン", "/messages", class: "edit"
+  .groups-area
+    .groups-list
+      = link_to "名前とメッセ", "/messages", class: "group"
+      = link_to "名前とメッセ", "/messages", class: "edit"
+
+
+.chat-contents
+  .chat-contents__header
+    .group-intro
+      .group-name グループの名前
+      = link_to "EDIT", "/messages", class: "edit-btn"
+      .members MEMBER:
+      %i メンバー名
+
+
+  .chat-contents__body
+    .messages-list
+      .chat-main__message
+        .message-name 名前
+      .message-time
+      2018/11/11 11:55
+      .message-body
+      メッセージ
+
+  .chat-contents__footer
+
