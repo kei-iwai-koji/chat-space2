@@ -1,7 +1,7 @@
 .chat-contents {
   width: calc(100% - 300px);
   float: left;
-  .chat-contents__header {
+  &__header {
     height: 110px;
     border-bottom: solid 1px #eeeeee;
     box-sizing: border-box;

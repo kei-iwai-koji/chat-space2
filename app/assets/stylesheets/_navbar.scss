@@ -17,7 +17,7 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      .user-name {
+      &-name {
         font-weight: bold;
         font-size: 16px;
         position: relative;
@@ -40,7 +40,7 @@
   .groups-area {
     .groups-list {
 
-      .groups-list__group {
+      &__group {
         height: 71px;
         padding: 20px;
         text-decoration: none;
