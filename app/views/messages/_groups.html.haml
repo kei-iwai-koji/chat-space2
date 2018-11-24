@@ -1,9 +1,19 @@
-.groups-list
-  = link_to "/messages" do
-    .groups-list__group
-      .group-name aaa
-      .group-message www
-  = link_to "/messages" do
-    .groups-list__group
-      .group-name aaa
-      .group-message www
+.navbar
+  .users-area
+    .user
+      .user-name
+        = current_user.name
+      = link_to edit_user_path(current_user), class: "edit" do
+        = fa_icon 'cog', class: 'icon'
+      = link_to new_group_path do
+        = fa_icon 'pencil-square-o', class: 'icon'
+  .groups-area
+    .groups-list
+      = link_to "/messages" do
+        .groups-list__group
+          .group-name aaa
+          .group-message www
+      = link_to "/messages" do
+        .groups-list__group
+          .group-name aaa
+          .group-message www

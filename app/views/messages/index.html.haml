@@ -1,28 +1,98 @@
-.navbar
-  .users-area
-    .user
-      .user-name
-        = current_user.name
-      = link_to edit_user_path(current_user), class: "edit" do
-        %i.fa.fa-cog
-      = link_to "/messages", class: "group-new" do
-        %i.fa.fa-pencil-square-o
-  .groups-area
-    = render "groups"
+.wrapper
 
-.chat-contents
-  .chat-contents__header
-    .group-intro.clearfix
-      .group-name グループの名前
-      = link_to "Edit", "/messages", class: "edit-btn"
-    .members MEMBER: メンバー名
+  = render 'shared/side_bar'
 
-  .chat-contents__body
-    = render "messages"
+  .chat
+    .header
+      .left-header
+        .left-header__title
+          グループ名
+        %ul.left-header__members
+          Member：
+          %li.member
+            メンバー名
+          %li.member
+            メンバー名
+          %li.member
+            メンバー名
+      .right-header
+        .right-header__button
+          Edit
+    .messages
+      .message
+        .upper-message
+          .upper-message__user-name
+            メンバー
+          .upper-message__date
+            2017/04/04
+        .lower-meesage
+          .lower-message__content
+            メッセージ
+      .message
+        .upper-message
+          .upper-message__user-name
+            メンバー
+          .upper-message__date
+            2017/04/04
+        .lower-meesage
+          .lower-message__content
+            メッセージ
+      .message
+        .upper-message
+          .upper-message__user-name
+            メンバー
+          .upper-message__date
+            2017/04/04
+        .lower-meesage
+          .lower-message__content
+            メッセージ
+    .form
+      %form
+        %input.form__message
+        .form__mask
+          %label.form__mask__image
+            = fa_icon 'picture-o', class: 'icon'
+            %input.hidden{type: 'file'}
+        %input.form__submit{type: 'submit', value: 'Send'}
 
-  .chat-contents__footer
-    .formbox
-      %input.chat-text{ placeholder: "type a message"}
-        %label.upload-label{for: "upload-icon"}
-          %i.fa.fa-picture-o
-      %input.chat-submit{ type: "submit", value: "Send"}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .chat-contents
+    .chat-contents__header
+      .group-intro.clearfix
+        .group-name グループの名前
+        = link_to "Edit", "/messages", class: "edit-btn"
+      .members MEMBER: メンバー名
+
+    .chat-contents__body
+      = render "messages"
+
+    .chat-contents__footer
+      .formbox
+        %input.chat-text{ placeholder: "type a message"}
+          %label.upload-label{for: "upload-icon"}
+            %i.fa.fa-picture-o
+        %input.chat-submit{ type: "submit", value: "Send"}
