@@ -47,52 +47,10 @@
           .lower-message__content
             メッセージ
     .form
-      %form
-        %input.form__message
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
         .form__mask
-          %label.form__mask__image
+          = f.label :image, class: 'form__mask__image' do
             = fa_icon 'picture-o', class: 'icon'
-            %input.hidden{type: 'file'}
-        %input.form__submit{type: 'submit', value: 'Send'}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  .chat-contents
-    .chat-contents__header
-      .group-intro.clearfix
-        .group-name グループの名前
-        = link_to "Edit", "/messages", class: "edit-btn"
-      .members MEMBER: メンバー名
-
-    .chat-contents__body
-      = render "messages"
-
-    .chat-contents__footer
-      .formbox
-        %input.chat-text{ placeholder: "type a message"}
-          %label.upload-label{for: "upload-icon"}
-            %i.fa.fa-picture-o
-        %input.chat-submit{ type: "submit", value: "Send"}
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
