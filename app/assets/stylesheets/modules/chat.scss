@@ -44,6 +44,7 @@
     height: calc(100vh - 100px - 90px);
     overflow: scroll;
     .message {
+      margin-bottom: 40px;
       .upper-message {
         display: flex;
         &__user-name {
@@ -59,10 +60,10 @@
       }
       .lower-message {
         margin-top: 10px;
+        margin-bottom: 20px;
         &__content {
           color: $black;
           font-size: 14px;
-          margin-bottom: 40px;
         }
       }
     }
