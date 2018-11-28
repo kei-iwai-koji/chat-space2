@@ -1,7 +1,6 @@
 $(function() {
   function buildHTML(message) {
     if (message.image && message.content) {
-      console.log("aaa")
       var html = `<div class="message">
                     <div class="upper-message">
                       <div class="upper-message__user-name">
@@ -19,7 +18,6 @@ $(function() {
                     </div>
                   </div>`
     } else if (message.content) {
-      console.log("bbb")
       var html = `<div class="message">
                     <div class="upper-message">
                       <div class="upper-message__user-name">
@@ -36,7 +34,6 @@ $(function() {
                     </div>
                   </div>`
     } else {
-      console.log("ccc")
       var html = `<div class="message">
                     <div class="upper-message">
                       <div class="upper-message__user-name">
@@ -56,8 +53,6 @@ $(function() {
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action')
-    console.log(url)
-    console.log(formData)
     $.ajax({
       url: url,
       type: "POST",
@@ -67,7 +62,6 @@ $(function() {
       contentType: false
     })
     .done(function(data) {
-      console.log(data)
       var html = buildHTML(data);
       $('.messages').append(html)
       $('.form__message').val('')
