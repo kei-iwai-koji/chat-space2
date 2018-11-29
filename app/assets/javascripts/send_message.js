@@ -1,52 +1,36 @@
 $(function() {
   function buildHTML(message) {
+    var htmlUpper = `<div class="message">
+                        <div class="upper-message">
+                          <div class="upper-message__user-name">
+                            ${message.user_name}
+                          </div>
+                          <div class="upper-message__date">
+                            ${message.date}
+                          </div>
+                        </div>`
     if (message.image && message.content) {
-      var html = `<div class="message">
-                    <div class="upper-message">
-                      <div class="upper-message__user-name">
-                        ${message.user_name}
-                      </div>
-                      <div class="upper-message__date">
-                        ${message.date}
-                      </div>
-                    </div>
-                    <div class="lower-meesage">
-                      <p class="lower-message__content">
-                        ${message.content}
-                      </p>
-                      <image src="${message.image}" class="lower-message__image" alt="image" width="300" height="300">
-                    </div>
-                  </div>`
+      var htmlLower =  `<div class="lower-meesage">
+                          <p class="lower-message__content">
+                            ${message.content}
+                          </p>
+                          <image src="${message.image}" class="lower-message__image" alt="image" width="300" height="300">
+                        </div>
+                      </div>`
     } else if (message.content) {
-      var html = `<div class="message">
-                    <div class="upper-message">
-                      <div class="upper-message__user-name">
-                        ${message.user_name}
-                      </div>
-                      <div class="upper-message__date">
-                        ${message.date}
-                      </div>
-                    </div>
-                    <div class="lower-meesage">
-                      <p class="lower-message__content">
-                        ${message.content}
-                      </p>
-                    </div>
-                  </div>`
+      var htmlLower =  `<div class="lower-meesage">
+                          <p class="lower-message__content">
+                            ${message.content}
+                          </p>
+                        </div>
+                      </div>`
     } else {
-      var html = `<div class="message">
-                    <div class="upper-message">
-                      <div class="upper-message__user-name">
-                        ${message.user_name}
-                      </div>
-                      <div class="upper-message__date">
-                        ${message.date}
-                      </div>
-                      <image src="${message.image}" class="lower-message__image" alt="image" width="300" height="300">
-                    </div>
-                  </div>`
+      var htmlLower =  `<div class="lower-meesage">
+                          <image src="${message.image}" class="lower-message__image" alt="image" width="300" height="300">
+                        </div>
+                      </div>`
     }
-    return html;
+    return htmlUpper + htmlLower;
   }
 
   $('#new_message').on('submit', function(e) {
