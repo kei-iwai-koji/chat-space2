@@ -1,36 +1,27 @@
 $(function() {
   function buildHTML(message) {
-    var htmlUpper = `<div class="message">
-                        <div class="upper-message">
-                          <div class="upper-message__user-name">
-                            ${message.user_name}
-                          </div>
-                          <div class="upper-message__date">
-                            ${message.date}
-                          </div>
-                        </div>`
-    if (message.image && message.content) {
-      var htmlLower =  `<div class="lower-meesage">
-                          <p class="lower-message__content">
-                            ${message.content}
-                          </p>
-                          <image src="${message.image}" class="lower-message__image" alt="image" width="300" height="300">
-                        </div>
-                      </div>`
-    } else if (message.content) {
-      var htmlLower =  `<div class="lower-meesage">
-                          <p class="lower-message__content">
-                            ${message.content}
-                          </p>
-                        </div>
-                      </div>`
+    if (message.image) {
+      var $image = `<image src="${message.image}" class="lower-message__image" alt="image" width="300" height="300">`
     } else {
-      var htmlLower =  `<div class="lower-meesage">
-                          <image src="${message.image}" class="lower-message__image" alt="image" width="300" height="300">
-                        </div>
-                      </div>`
+      var $image = ``
     }
-    return htmlUpper + htmlLower;
+    var html = `<div class="message">
+                    <div class="upper-message">
+                      <div class="upper-message__user-name">
+                        ${message.user_name}
+                      </div>
+                      <div class="upper-message__date">
+                        ${message.date}
+                      </div>
+                    </div>
+                    <div class="lower-meesage">
+                      <p class="lower-message__content">
+                        ${message.content}
+                      </p>
+                      ${$image}
+                    </div>
+                  </div>`
+    return html;
   }
 
   $('#new_message').on('submit', function(e) {
@@ -49,10 +40,12 @@ $(function() {
       var html = buildHTML(data);
       $('.messages').append(html)
       $('.form__message').val('')
+      $('.hidden').val('')
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 500);
     })
     .fail(function() {
       alert('error');
     })
+    return false;
   })
 });
