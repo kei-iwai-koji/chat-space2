@@ -1,10 +1,6 @@
 $(function() {
   function buildHTML(message) {
-    if (message.image) {
-      var $image = `<image src="${message.image}" class="lower-message__image" alt="image" width="300" height="300">`
-    } else {
-      var $image = ``
-    }
+    var $image = message.image ? `<image src="${message.image}" class="lower-message__image" alt="image" width="300" height="300">` : ``
     var html = `<div class="message">
                     <div class="upper-message">
                       <div class="upper-message__user-name">
@@ -46,6 +42,8 @@ $(function() {
     .fail(function() {
       alert('error');
     })
-    return false;
+    .always(function() {
+      $('.form__submit').prop("disabled", false);
+    })
   })
 });
