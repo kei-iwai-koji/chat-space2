@@ -41,8 +41,10 @@
     background-color: #FAFAFA;
     box-sizing: border-box;
     padding: 46px 40px 0;
-    height: calc(100% - 100px - 90px);
+    height: calc(100vh - 100px - 90px);
+    overflow: scroll;
     .message {
+      margin-bottom: 40px;
       .upper-message {
         display: flex;
         &__user-name {
@@ -58,10 +60,10 @@
       }
       .lower-message {
         margin-top: 10px;
+        margin-bottom: 20px;
         &__content {
           color: $black;
           font-size: 14px;
-          margin-bottom: 40px;
         }
       }
     }
@@ -72,11 +74,17 @@
     box-sizing: border-box;
     height: 90px;
     padding: 20px 50px 20px 40px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: calc(100% - 300px);
     &__message {
       border: none;
       float: left;
       height: 50px;
       width: calc(100% - 150px);
+      padding-left: 10px;
+      box-sizing: border-box;
     }
     &__mask {
       background-color: $white;
