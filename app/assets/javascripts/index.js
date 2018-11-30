@@ -1,6 +1,7 @@
 $(function() {
   var userSearchResult = $('#user-search-result');
-  var preWord;
+  var chatGroupUsers = $('#chat-group-users');
+  // var preWord;
 
   function appendUser(user) {
     var html = `<div class="chat-group-user clearfix">
@@ -13,6 +14,15 @@ $(function() {
   function appendNoUser(nouser) {
     var html = `<div class="chat-group-user clearfix">${ nouser }</div>`
     userSearchResult.append(html);
+  }
+
+  function addUser(userId, userName) {
+    var html = `<div id="chat-group-user-22" class="chat-group-user clearfix">
+                  <input name='group[user_ids][]' type='hidden' value='${userId}'>
+                  <p class="chat-group-user__name">${userName}</p>
+                  <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove" data-user-id="${userId}" data-user-name="${userName}">削除</a>
+                </div>`
+    chatGroupUsers.append(html);
   }
 
   // function element(element) {
@@ -32,13 +42,10 @@ $(function() {
           // $.each(newInputs, function(i, p) {
           //   if (i == 0 || i == 1) {
           //     var
-          //     console.log(i);
           //   } else {
           //     return false;
           //   }
-          //   console.log('&&');
           // });
-          //   console.log(newInputs);
           // $.ajax({
           //   type: 'GET',
           //   url: '/users',
@@ -60,7 +67,6 @@ $(function() {
                   appendUser(user);
               });
             } else {
-              console.log('444');
               appendNoUser("一致するユーザーはいません");
             }
           })
@@ -71,4 +77,59 @@ $(function() {
     // }
     // preWord = word;
   });
+
+  $(document).on("click", ".user-search-add", function() {
+    var userId = $(this).attr("data-user-id");
+    var userName = $(this).attr("data-user-name");
+    $(this).parent().remove();
+    addUser(userId, userName);
+  });
+
+  $(document).on("click", ".user-search-remove", function() {
+    var userId = $(this).attr("data-user-id");
+    var userName = $(this).attr("data-user-name");
+    $(this).parent().remove();
+    var $user = {id: userId, name: userName}
+    appendUser($user);
+  });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
