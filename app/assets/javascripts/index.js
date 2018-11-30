@@ -36,7 +36,7 @@ $(function() {
     // var word = newInputs.join(" ");
 
     // if (word != preWord) {
-      $(".chat-group-user").remove();
+      $("#user-search-result").empty();
         if(input.length !== 0) {
 
           // $.each(newInputs, function(i, p) {
@@ -86,50 +86,6 @@ $(function() {
   });
 
   $(document).on("click", ".user-search-remove", function() {
-    var userId = $(this).attr("data-user-id");
-    var userName = $(this).attr("data-user-name");
     $(this).parent().remove();
-    var $user = {id: userId, name: userName}
-    appendUser($user);
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
