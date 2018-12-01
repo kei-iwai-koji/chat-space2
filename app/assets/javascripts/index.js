@@ -36,7 +36,7 @@ $(function() {
     // var word = newInputs.join(" ");
 
     // if (word != preWord) {
-      $("#user-search-result").empty();
+      $(userSearchResult).empty();
         if(input.length !== 0) {
 
           // $.each(newInputs, function(i, p) {
