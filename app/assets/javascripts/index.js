@@ -1,7 +1,6 @@
 $(function() {
   var userSearchResult = $('#user-search-result');
   var chatGroupUsers = $('#chat-group-users');
-  // var preWord;
 
   function appendUser(user) {
     var html = `<div class="chat-group-user clearfix">
@@ -25,34 +24,10 @@ $(function() {
     chatGroupUsers.append(html);
   }
 
-  // function element(element) {
-  //   return element;
-  // }
-
   $('#user-search-field').on('keyup', function() {
     var input = $('#user-search-field').val();
-    // var inputs = input.split(" ").filter(function(e) { return e; });
-    // var newInputs = inputs.map(element);
-    // var word = newInputs.join(" ");
-
-    // if (word != preWord) {
       $(userSearchResult).empty();
         if(input.length !== 0) {
-
-          // $.each(newInputs, function(i, p) {
-          //   if (i == 0 || i == 1) {
-          //     var
-          //   } else {
-          //     return false;
-          //   }
-          // });
-          // $.ajax({
-          //   type: 'GET',
-          //   url: '/users',
-          //   data: { keyword1: p0,
-          //           keyword2: p1},
-          //   dataType: 'json'
-          // })
 
           $.ajax({
             type: 'GET',
@@ -74,8 +49,6 @@ $(function() {
             alert('ユーザー検索に失敗しました');
           })
         }
-    // }
-    // preWord = word;
   });
 
   $(document).on("click", ".user-search-add", function() {
