@@ -33,6 +33,10 @@
       &__button {
         color: $light_blue;
         text-decoration: none;
+        .edit {
+          text-decoration: none;
+          color: $light_blue;
+        }
       }
     }
   }
