@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_group
+  Time.zone = 'Tokyo'
 
   def index
     @message = Message.new
