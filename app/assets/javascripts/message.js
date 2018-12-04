@@ -1,5 +1,4 @@
-$(function() {
-  $(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function() {
   // メッセージ追加
     function buildHTML(message) {
       var $image = message.image ? `<image src="${message.image}" class="lower-message__image" alt="image" width="300" height="300">` : ``
@@ -77,6 +76,4 @@ $(function() {
         clearInterval(upDate);
       }
     }
-
-  });
 });
